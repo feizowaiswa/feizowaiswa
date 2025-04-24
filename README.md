@@ -2,7 +2,7 @@
 - 👀 I’m interested in programming
 - 🌱 I’m currently learning database
 - 💞️ I’m looking to collaborate on many Things
-- 📫 How to reach me, use my email or whatsapp me on +256751515472
+- 📫 How to reach me, use my email or whatsapp me on +256746635375
 
 <!---
 feizowaiswa/feizowaiswa is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
