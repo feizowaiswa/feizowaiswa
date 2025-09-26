@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Dropdown Destinations - Dragon Flys Expeditions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 10px;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-item {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+        .comparison-item h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .old-method {
+            border-color: #dc3545;
+        }
+        .new-method {
+            border-color: #28a745;
+        }
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1><i class="fas fa-vial"></i> Dropdown Destinations Test Page</h1>
+            <p>Testing the new compact dropdown destinations selector vs. the old grid layout</p>
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-item old-method">
+                <h3><i class="fas fa-times-circle" style="color: #dc3545;"></i> Old Method Issues</h3>
+                <ul>
+                    <li>Displayed 10 destination cards taking up massive vertical space</li>
+                    <li>Required "View More" button to show/hide additional cards</li>
+                    <li>Made the website very long to scroll through</li>
+                    <li>Poor mobile experience with excessive scrolling</li>
+                </ul>
+            </div>
+            <div class="comparison-item new-method">
+                <h3><i class="fas fa-check-circle" style="color: #28a745;"></i> New Method Benefits</h3>
+                <ul>
+                    <li>Compact dropdown selector saves 80% vertical space</li>
+                    <li>Interactive selection shows only chosen destination</li>
+                    <li>Much shorter page length for better UX</li>
+                    <li>Mobile-friendly with excellent responsiveness</li>
+                    <li>Smooth animations and professional design</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- New Dropdown Destinations Section -->
+        <section id="destinations" class="destinations">
+            <div class="container">
+                <h2 data-translate="destinations-title">Explore Our Destinations</h2>
+                
+                <!-- Compact Destinations Selector -->
+                <div class="destinations-selector">
+                    <div class="destination-dropdown-container">
+                        <label for="destination-select" class="destination-label">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Select a Destination:
+                        </label>
+                        <select id="destination-select" class="destination-dropdown" onchange="showSelectedDestination(this.value)">
+                            <option value="">Choose a destination to explore...</option>
+                            <option value="bwindi" selected>Bwindi Impenetrable National Park</option>
+                            <option value="queen-elizabeth">Queen Elizabeth National Park</option>
+                            <option value="murchison-falls">Murchison Falls National Park</option>
+                            <option value="kibale">Kibale National Park</option>
+                            <option value="kidepo-valley">Kidepo Valley National Park</option>
+                            <option value="pian-upe">Pian Upe Wildlife Reserve</option>
+                            <option value="lake-mburo">Lake Mburo National Park</option>
+                            <option value="mount-elgon">Mount Elgon National Park</option>
+                            <option value="rwenzori">Rwenzori National Park</option>
+                            <option value="mgahinga">Mgahinga Gorilla National Park</option>
+                        </select>
+                    </div>
+                    
+                    <div class="destinations-overview">
+                        <p class="overview-text">
+                            <i class="fas fa-info-circle"></i>
+                            Uganda offers incredible safari destinations from mountain gorilla trekking to wildlife safaris. 
+                            Select a destination above to learn more about what makes each location special.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Selected Destination Display -->
+                <div id="selected-destination" class="selected-destination" style="display: block; opacity: 1; transform: translateY(0);">
+                    <div class="destination-card selected">
+                        <img src="img/mountain-gorilla.jpg" alt="Bwindi Impenetrable National Park" loading="lazy">
+                        <div class="destination-content">
+                            <h3>Bwindi Impenetrable National Park</h3>
+                            <p>UNESCO World Heritage Site known for mountain gorilla trekking. Experience the thrill of encountering these majestic primates in their natural habitat, surrounded by lush rainforest and diverse wildlife.</p>
+                            <div class="highlights">
+                                <span>Mountain Gorilla Trekking</span>
+                                <span>Chimpanzees</span>
+                                <span>Bird Species (350+)</span>
+                                <span>Batwa Cultural Experience</span>
+                            </div>
+                            <div class="destination-actions">
+                                <a href="#tours" class="cta-button">View Tours</a>
+                                <a href="#contact" class="cta-button-outline">Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hidden destination data for JavaScript -->
+                <div class="destination-data" style="display: none;">
+                    <div data-destination="bwindi" data-image="img/mountain-gorilla.jpg" data-alt="Bwindi Impenetrable National Park">
+                        <h3>Bwindi Impenetrable National Park</h3>
+                        <p>UNESCO World Heritage Site known for mountain gorilla trekking. Experience the thrill of encountering these majestic primates in their natural habitat, surrounded by lush rainforest and diverse wildlife.</p>
+                        <div class="highlights">
+                            <span>Mountain Gorilla Trekking</span>
+                            <span>Chimpanzees</span>
+                            <span>Bird Species (350+)</span>
+                            <span>Batwa Cultural Experience</span>
+                        </div>
+                    </div>
+                    
+                    <div data-destination="queen-elizabeth" data-image="img/lions-queen-elizabeth.jpg" data-alt="Queen Elizabeth National Park">
+                        <h3>Queen Elizabeth National Park</h3>
+                        <p>Famous for tree-climbing lions in the Ishasha sector. Experience thrilling boat cruises on the Kazinga Channel, diverse ecosystems, and abundant wildlife including elephants, hippos, buffaloes, and over 600 bird species.</p>
+                        <div class="highlights">
+                            <span>Tree-Climbing Lions</span>
+                            <span>Kazinga Channel Cruises</span>
+                            <span>600+ Bird Species</span>
+                            <span>Diverse Wildlife</span>
+                        </div>
+                    </div>
+
+                    <div data-destination="murchison-falls" data-image="img/waterfall.jpg" data-alt="Murchison Falls National Park - The Nile's most powerful waterfall">
+                        <h3>Murchison Falls National Park</h3>
+                        <p>Home to the Nile's most powerful waterfall where the river thunders through a narrow gorge. Enjoy boat cruises on the Nile, look for the shoebill, and encounter big game including elephants, giraffes, and lions.</p>
+                        <div class="highlights">
+                            <span>Murchison Falls</span>
+                            <span>Nile River Cruises</span>
+                            <span>Shoebill Stork</span>
+                            <span>Large Game Safari</span>
+                        </div>
+                    </div>
+
+                    <div data-destination="kibale" data-image="img/two_chimps.jpg" data-alt="Kibale National Park - Two chimpanzees in rainforest">
+                        <h3>Kibale National Park</h3>
+                        <p>Uganda's primate capital, famous for chimpanzee trekking and 13 primate species. Explore lush rainforest trails and excellent birding in one of East Africa's richest forest ecosystems.</p>
+                        <div class="highlights">
+                            <span>Chimpanzee Trekking</span>
+                            <span>13 Primate Species</span>
+                            <span>Bird Watching</span>
+                            <span>Bigodi Wetlands</span>
+                        </div>
+                    </div>
+
+                    <div data-destination="kidepo-valley" data-image="img/kidepo_np.jpg" data-alt="Kidepo Valley National Park - Remote savannah wilderness and Karamojong culture">
+                        <h3>Kidepo Valley National Park</h3>
+                        <p>Known for remote wilderness and authentic African safari experience. Features unique wildlife not common elsewhere in Uganda including cheetahs and ostriches, set against stunning rugged landscapes with opportunities for Karamojong cultural tours.</p>
+                        <div class="highlights">
+                            <span>Remote Wilderness</span>
+                            <span>Cheetahs & Ostriches</span>
+                            <span>Rugged Landscapes</span>
+                            <span>Karamojong Culture</span>
+                        </div>
+                    </div>
+
+                    <div data-destination="pian-upe" data-image="img/pian_upe.jpg" data-alt="Pian Upe Wildlife Reserve - Karamoja savannah and rare species">
+                        <h3>Pian Upe Wildlife Reserve</h3>
+                        <p>Among Uganda's largest reserves, famed for sweeping savannahs and rare species. Look for cheetah, ostrich, roan antelope, and exceptional birdlife across the dramatic Karamoja plains.</p>
+                        <div class="highlights">
+                            <span>Vast Savannah</span>
+                            <span>Cheetah & Ostrich</span>
+                            <span>Roan Antelope</span>
+                            <span>Birding Paradise</span>
+                        </div>
+                    </div>
+
+                    <div data-destination="lake-mburo" data-image="img/ZebraClear.jpg" data-alt="Lake Mburo National Park - Zebra herds and rolling savannahs">
+                        <h3>Lake Mburo National Park</h3>
+                        <p>Known for impressive zebra herds and diverse antelope species. Experience unique activities like horseback riding safaris, cycling through savannahs, boat rides on Lake Mburo, and excellent birding opportunities in this accessible park.</p>
+                        <div class="highlights">
+                            <span>Zebra Herds</span>
+                            <span>Antelope Species</span>
+                            <span>Horseback Riding</span>
+                            <span>Cycling Safaris</span>
+                        </div>
+                    </div>
+
+                    <div data-destination="mount-elgon" data-image="img/elgon_np.jpg" data-alt="Mount Elgon National Park - Volcanic peaks, caves and trails">
+                        <h3>Mount Elgon National Park</h3>
+                        <p>East Africa's oldest and largest solitary volcanic mountain, offering spectacular hiking trails, ancient caves, and crater lakes. Experience diverse ecosystems from savannah to alpine zones, with opportunities for cave exploration and wildlife viewing.</p>
+                        <div class="highlights">
+                            <span>Mountain Hiking</span>
+                            <span>Cave Exploration</span>
+                            <span>Crater Lakes</span>
+                            <span>Diverse Ecosystems</span>
+                        </div>
+                    </div>
+                    
+                    <div data-destination="rwenzori" data-image="img/rwenzori_np.jpg" data-alt="Rwenzori Mountains National Park - Glaciers and alpine scenery">
+                        <h3>Rwenzori National Park</h3>
+                        <p>Home to the 'Mountains of the Moon', featuring Africa's third highest peak and equatorial glaciers. Experience breathtaking alpine scenery, diverse wildlife, and challenging hiking trails through this UNESCO World Heritage Site.</p>
+                        <div class="highlights">
+                            <span>Mountain Hiking</span>
+                            <span>Equatorial Glaciers</span>
+                            <span>Alpine Flora</span>
+                            <span>UNESCO Heritage</span>
+                        </div>
+                    </div>
+                    
+                    <div data-destination="mgahinga" data-image="img/mgahinga.jpg" data-alt="Mgahinga Gorilla National Park - Volcanoes and golden monkeys">
+                        <h3>Mgahinga Gorilla National Park</h3>
+                        <p>Bordering Rwanda and DRC, known for golden monkey tracking and gorilla trekking. Explore volcanic cones, bamboo forests, and scenic crater lakes in this compact, dramatic park.</p>
+                        <div class="highlights">
+                            <span>Golden Monkey Tracking</span>
+                            <span>Mountain Gorilla Trekking</span>
+                            <span>Volcanic Landscapes</span>
+                            <span>Crater Lakes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div style="margin-top: 40px; padding: 20px; background: #e8f5e8; border-radius: 10px; border-left: 5px solid #28a745;">
+            <h3><i class="fas fa-check-circle" style="color: #28a745;"></i> Test Instructions</h3>
+            <ol>
+                <li>Use the dropdown above to select different destinations</li>
+                <li>Notice how each selection displays a beautiful card with destination details</li>
+                <li>Test on mobile devices to see the responsive design</li>
+                <li>Compare the space savings vs. showing all 10 cards at once</li>
+                <li>Check the smooth animations and professional styling</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        console.log('Dropdown Destinations Test Page Loaded');
+        console.log('Testing showSelectedDestination function...');
+        
+        // Test function availability
+        if (typeof showSelectedDestination === 'function') {
+            console.log('✅ showSelectedDestination function is available');
+        } else {
+            console.log('❌ showSelectedDestination function not found');
+        }
+    </script>
+</body>
+</html>
